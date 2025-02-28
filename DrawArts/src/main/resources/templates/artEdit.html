@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DrawArts</title>
+    <style>
+		
+		body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.slideshow-container {
+  max-width: 100%;
+  height: 500px; 
+  overflow: hidden;
+}
+
+img 
+{
+	vertical-align: middle;
+}
+
+.sitename {
+  position: absolute; 
+  top: 10px;
+  left: 20px; 
+}
+nav {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  background-color: #333;
+  z-index: 1; 
+  float: left;
+}
+nav ul {
+  list-style: none;
+  height: 20px;
+  width: 100%;
+  background-color: #333;
+  list-style: none;
+  padding: 20px;
+  margin: 20px;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+nav a button
+{
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  padding: 5px;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+}
+nav a button:hover
+{
+  color: #ffcc00;
+  border: 2px solid #fff;
+}
+.search-form {
+  display: flex; 
+}
+
+.search-form input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.search-form button {
+  padding: 5px 10px;
+  background-color: #ffcc00;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#content {
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.contact-form {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label,
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contact-form button:hover {
+  background-color: #ffaa00;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 1rem;
+}
+table
+{
+  width: 100%;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 100px;
+}
+
+footer li {
+  display: block;
+  margin-right: 20px;
+
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer a:hover {
+  color: #ffcc00;
+}
+
+.social-media-icons {
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: block;
+  margin-right: 10px;
+
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+	
+    nav {
+    float: none; 
+  }
+
+  nav ul
+  {
+    background-color: #333;
+    height: auto;
+  }
+
+  nav li {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px; 
+  }
+  
+  footer ul {
+    margin-top: 10px;
+  }
+
+  .footer-links td {
+    display: block;
+    padding: 5px 0;
+  }
+
+  .footer-links td:first-child {
+    padding-top: 10px;
+  }
+
+  .footer-links a {
+    display: block;
+  }
+
+}
+	</style>
+</head>
+<body>
+	<nav>
+      <ul>
+        <li>
+          <h1 class="sitename">DrawArts</h1>
+        </li>
+        <li><a href="/" id="home">Home</a></li>
+        <li><a href="new_arrivals">New Arrivals</a></li>
+        <li><a href="/" id="category">Categories</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li><a href="#" id="signup"><button id="signupButton">Sign Up</button></a></li>
+        <li><a href="#" id="login"><button id="loginButton">Login</button></a></li>
+        <li>
+          <form class="search-form">
+            <input type="text" placeholder="Search"><button type="submit">Search</button>
+          </form>
+        </li>
+        <li><a href="cart" class="cart-icon">Cart</a></li>
+        <li><a href="add_art">Add New Art</a></li>
+      </ul>
+    </nav>
+
+	<section id="content">
+    <div class="contact-form">
+      <h2>Edit Art Details</h2>
+      <form id="contactForm" th:action="@{/save}" method="post" th:object="${art}">
+		
+		<input type="hidden" name="id" th:value="${art.id}"/>
+		
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" th:value="${art.name}">
+
+        <label for="size" class="form-label">Size:</label>
+        <input type="text" id="size" name="size" th:value="${art.size}">
+
+        <label for="price" class="form-label">Price:</label>
+        <input type="text" id="price" name="price"  th:value="${art.price}">
+
+        <button type="submit" >Edit</button>
+      </form>
+    </div>
+  </section>
+    <footer>
+        <table class="footer-links">
+            <tr>
+                <td>
+                    <navi>
+                        <ul>
+                            <h3>Quick Links</h3>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </navi>
+                </td>
+
+                <td>
+                    <ul>
+                        <h3>Address</h3>
+                        <li><a href="#">Mukesh Patel School of Technology Management and Engineering, Mumbai</a></li>
+                        <li><a href="#">+91 1234567890</a></li>
+                        <li><a href="#">test123@gmail.com</a></li>
+                    </ul>
+                </td>
+
+
+            </tr>
+
+        </table>
+        <p style="text-align: center;">&copy; 2025 Art Gallery.</p>
+    </footer>
+</body>
+</html>

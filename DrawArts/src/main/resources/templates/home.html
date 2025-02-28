@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DrawArts</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+   
+   <header>
+	<nav>
+      <ul>
+        <li>
+          <h1 class="site-name">DrawArts</h1>
+        </li>
+        <li><a href="/" id="home">Home</a></li>
+        <li><a href="new_arrivals">New Arrivals</a></li>
+        <li><a href="#categories" id="category">Categories</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li><a href="#" id="signup"><button id="signupButton">Sign Up</button></a></li>
+        <li><a href="#" id="login"><button id="loginButton">Login</button></a></li>
+        <li>
+          <form class="search-form">
+            <input type="text" placeholder="Search"><button type="submit">Search</button>
+          </form>
+        </li>
+        <li><a href="cart" class="cart-icon">Cart</a></li>
+
+        <li><a href="add_art">Add New Art</a></li>
+      </ul>
+    </nav>
+
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <img src="images/image1.jpg" style="width:100%">
+      </div>
+	</div>
+
+  </header>
+  <!--about us-->
+  <section id="content">
+    <div class="about-us">
+      <h2>About Us</h2>
+      <p>
+        Welcome to our DrawArt website. We are dedicated to showcasing a diverse collection of
+        breathtaking artworks from talented artists around the world. Our mission is to promote and
+        support artists by providing them with a platform to exhibit their exceptional creations to
+        art enthusiasts and collectors.
+      </p>
+      <p>
+        This Website is built as a proof of concept for our project for Microservices and Architecture(MSA) subject.
+          You are welcome to explore it and provide us feedback on how we can improve this website
+      </p>
+        <p>Made by</p>
+        <p>B157 Yash Karande</p>
+        <p>B158 Rudra Singh</p>
+        <p>B178 Siddh Purohit</p>
+        <p>B185 Om Aher</p>
+      <h3>Facilities</h3>
+      <ul>
+        <li>Curated Collection: Discover a curated collection of captivating paintings and sketches.</li>
+        <li>Secure Purchase: Enjoy a safe and secure online shopping experience with us.</li>
+        <li>Artist Showcase: Explore the diverse talent of artists from various backgrounds.</li>
+       
+      </ul>
+    </div>
+  </section>
+  <!--category session-->
+  <section id="categories">
+     <div class="arts-category" id="category">
+      <h2>Arts Categories</h2>
+      <div class="category-tiles">
+        <div class="category-tile">
+          <a href="#landscape">
+            <img src="images/oil_paintings.jpg" alt="Oil Paintings">
+            <h3 class="catagory-name">Landscape Paintings</h3>
+          </a>
+        </div>
+        <div class="category-tile">
+          <a href="#clothes">
+            <img src="images/watercolor_paintings.jpg" alt="Watercolor Paintings">
+            <h3 class="catagory-name">Clothes Paintings</h3>
+          </a>
+        </div>
+        <div class="category-tile">
+          <a href="#crossStitch">
+            <img src="images/crossStitch.jpg" alt="Acrylic Paintings">
+            <h3 class="catagory-name">Cross Stitch</h3>
+          </a>
+        </div>
+        <div class="category-tile">
+          <a href="#sketchesContainer">
+            <img src="images/sketches.jpeg" alt="Sketches">
+            <h3 class="catagory-name">Sketches</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="Gallery">
+	  <!--Landscape paintings-->
+    <h3 id="landscape">Landscape Paintings</h3> 
+      <div class="paintings-container" >
+        <div class="painting-card" >
+          <img src="images/lpainting1.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal1')">View</button>
+          <h2>River & Mountain</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.5000.00</p>
+            <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="River & Mountain">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal1" class="modal">
+          <span class="close" onclick="closeModal('modal1')">&times;</span>
+           <div class="modal-content">
+            <div class="modal-image">
+              <img src="images/lpainting1.jpg" alt="Enlarged Image">
+            </div>
+            <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="River & Mountain Painting">
+                  <label>Size:</label>
+                  <input name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="5000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+            </div>
+           </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/lpainting2.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal2')">View</button>
+          <h2>Sun set & Sea</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.4000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Sun set & Sea">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="4000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal2" class="modal">
+          <span class="close" onclick="closeModal('modal2')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/lpainting2.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Sun set & Sea">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/lpainting3.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal3')">View</button>
+          <h2>Lovers & Lamps</h2>
+          <p>9 X 16 inches</p>
+          <p>Price: Rs.5000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Lovers & Lamps">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a href="cart">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal3" class="modal">
+          <span class="close" onclick="closeModal('modal3')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/lpainting3.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Lovers & Lamps">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="9 X16">
+                  <label>Price:</label>
+                  <input name="price" value="5000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+        <div class="painting-card" >
+          <img src="images/lpainting4.jpeg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal4')">View</button>
+          <h2>Sunset</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.4000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Sunset">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="4000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal4" class="modal">
+          <span class="close" onclick="closeModal('modal4')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/lpainting4.jpeg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Sunset">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+      </div>
+	  
+	  <!--Fabric paintings-->
+    <h3 id="clothes">Fabric Paintings</h3> 
+      <div class="paintings-container" >
+        <div class="painting-card" >
+          <img src="images/clpainting1.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal9')">View</button>
+          <h2>Floral T-shirt</h2>
+          
+          <p>free size</p>
+          <p>1000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Floral T-shirt">
+              <input type="hidden" name="size" value="free size">
+              <input type="hidden" name="price" value="1000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal9" class="modal">
+          <span class="close" onclick="closeModal('modal9')">&times;</span>
+           <div class="modal-content">
+            <div class="modal-image">
+              <img src="images/clpainting1.jpg" alt="Enlarged Image">
+            </div>
+            <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Floral T-shirtg">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="1000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+            </div>
+           </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/clpainting2.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal10')">View</button>
+          <h2>Dining Table Clothes</h2>
+          <p>50 X 30 inches</p>
+          <p>Price: Rs.4000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Dining Table Clothes">
+              <input type="hidden" name="size" value="free size">
+              <input type="hidden" name="price" value="4000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal10" class="modal">
+          <span class="close" onclick="closeModal('modal10')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/clpainting2.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Dining Table Clothes">
+                   <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                 <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/lpainting3.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal11')">View</button>
+          <h2>Lovers & Lamps</h2>
+          <p>9 X 16 inches</p>
+          <p>Price: Rs.5000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Lovers & Lamps">
+              <input type="hidden" name="size" value="free size">
+              <input type="hidden" name="price" value="4000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal11" class="modal">
+          <span class="close" onclick="closeModal('modal11')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/lpainting3.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                 <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Lovers & Lamps">
+                   <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="5000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+        <div class="painting-card" >
+          <img src="images/lpainting4.jpeg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal12')">View</button>
+          <h2>Sunset</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.4000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Sunset">
+              <input type="hidden" name="size" value="free size">
+              <input type="hidden" name="price" value="4000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          	</form>
+        </div>
+        <div id="modal12" class="modal">
+          <span class="close" onclick="closeModal('modal12')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/lpainting4.jpeg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                 <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Sunset">
+                   <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+      </div>
+    
+    <!--Cross Stitches-->
+    <h3 id="crossStitch">Cross Stitches Arts</h3> 
+      <div class="paintings-container" >
+        <div class="painting-card" >
+          <img src="images/cpainting1.jpeg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal5')">View</button>
+          <h2>Panda</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.5000.00</p>
+            <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Panda">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal5" class="modal">
+          <span class="close" onclick="closeModal('modal5')">&times;</span>
+           <div class="modal-content">
+            <div class="modal-image">
+              <img src="images/cpainting1.jpeg" alt="Enlarged Image">
+            </div>
+            <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Panda">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="5000.00">
+                 <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+            </div>
+           </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/cpainting2.webp" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal6')">View</button>
+          <h2>Home</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.4000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Home">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal6" class="modal">
+          <span class="close" onclick="closeModal('modal6')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/cpainting2.webp" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Home">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/cpainting3.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal7')">View</button>
+          <h2>Harp Seal</h2>
+          <p>9 X 16 inches</p>
+          <p>Price: Rs.5000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Harp Seal">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal7" class="modal">
+          <span class="close" onclick="closeModal('modal7')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/cpainting3.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Harp Seal">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="5000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+        <div class="painting-card" >
+          <img src="images/cpainting4.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal8')">View</button>
+          <h2>Unicorn</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.4000.00</p>
+         <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Unicorn">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal8" class="modal">
+          <span class="close" onclick="closeModal('modal8')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/cpainting4.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Unicorn">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+      </div>
+    
+    <!--Sketches-->
+    <h3 id="sketchesContainer">Sketch Arts</h3> 
+      <div class="paintings-container" >
+        <div class="painting-card" >
+          <img src="images/spainting1.jpeg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal13')">View</button>
+          <h2>Colored Potrait</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.5000.00</p>
+            <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Colored Potrait">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal13" class="modal">
+          <span class="close" onclick="closeModal('modal13')">&times;</span>
+           <div class="modal-content">
+            <div class="modal-image">
+              <img src="images/spainting1.jpeg" alt="Enlarged Image">
+            </div>
+            <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Single Potrait[Colored]">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="5000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+            </div>
+           </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/spainting2.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal14')">View</button>
+          <h2>B & W Potrait</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.4000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="B & W Potrait">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal14" class="modal">
+          <span class="close" onclick="closeModal('modal14')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/spainting2.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Single Potrait[Black & White]">
+                 <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+
+        <div class="painting-card" >
+          <img src="images/spainting3.webp" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal15')">View</button>
+          <h2>Pencil Arts</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.5000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Pencil Arts">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal15" class="modal">
+          <span class="close" onclick="closeModal('modal15')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/spainting3.webp" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Pencil Arts[Colored]">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="5000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+        <div class="painting-card" >
+          <img src="images/spainting4.jpg" alt="Pencil Arts">
+          <button class="view-btn" onclick="openModal('modal16')">View</button>
+          <h2>Pencil Arts</h2>
+          <p>16 X 9 inches</p>
+          <p>Price: Rs.4000.00</p>
+          <form th:action="@{/savecart}" method="post">
+              <input type="hidden" name="name" value="Pencil Arts">
+              <input type="hidden" name="size" value="16 X 9">
+              <input type="hidden" name="price" value="5000.00">
+              <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+          </form>
+        </div>
+        <div id="modal16" class="modal">
+          <span class="close" onclick="closeModal('modal16')">&times;</span>
+          <div class="modal-content">
+            <div class="modal-image">
+          <img src="images/spainting4.jpg" alt="Enlarged Image">
+        </div>
+          <div class="modal-description">
+                <form th:action="@{/savecart}" method="post">
+                  <label>Item Description:</label>
+                  <input name="name" value="Pencil Arts[Black & White]">
+                  <label>Size:</label>
+                  <input type="hidden" name="size" value="16 X 9">
+                  <label>Price:</label>
+                  <input name="price" value="4000.00">
+                  <button type="submit"><a th:action="@{/savecart}">Add to Cart</a></button>
+            	</form>
+           </div>
+        </div>
+        </div>
+      </div>
+  </section>
+   <footer>
+       <table class="footer-links">
+           <tr>
+               <td>
+                   <navi>
+                       <ul>
+                           <h3>Quick Links</h3>
+                           <li><a href="#">Home</a></li>
+                           <li><a href="#">About Us</a></li>
+                           <li><a href="#">Contact</a></li>
+                           <li><a href="#">Privacy Policy</a></li>
+                       </ul>
+                   </navi>
+               </td>
+
+               <td>
+                   <ul>
+                       <h3>Address</h3>
+                       <li><a href="#">Mukesh Patel School of Technology Management and Engineering, Mumbai</a></li>
+                       <li><a href="#">+91 1234567890</a></li>
+                       <li><a href="#">test123@gmail.com</a></li>
+                   </ul>
+               </td>
+
+
+           </tr>
+
+       </table>
+       <p style="text-align: center;">&copy; 2025 Art Gallery.</p>
+   </footer>
+  <script>
+	function openModal(modalId) {
+	  var modal = document.getElementById(modalId);
+	  modal.style.display = "block";
+	}
+
+	function closeModal(modalId) {
+		  var modal = document.getElementById(modalId);
+		  modal.style.display = "none";
+	}
+</script>
+  </body>
+</html>
